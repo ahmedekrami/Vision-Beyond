@@ -103,4 +103,22 @@ document.querySelectorAll('.preview-btn').forEach(btn => {
     const src = btn.getAttribute('data-img');
     createImgModal(src);
   };
-}); 
+});
+
+// Hamburger menu for mobile
+const hamburger = document.getElementById('hamburger-menu');
+const header = document.querySelector('header');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    header.classList.toggle('nav-open');
+  });
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      header.classList.remove('nav-open');
+    });
+  });
+} 
